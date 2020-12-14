@@ -10,10 +10,20 @@ Rozenn Dahyot, Lecturenotes Trinity College Dublin 2007.
 (https://github.com/Roznn/Bootstrap/)
 ```
 
+## Topics covered
+
++ Definitions and Problems
++  Non-Parametric Bootstrap
++  Parametric Bootstrap
++ Jackknife
++ Permutation tests
++ Cross-validation
+
 ## Compilation to create the PDF
 
-With [Miktex](https://miktex.org/) installes, in the windows command prompt (windows):
+With [Miktex](https://miktex.org/) installed, in the (Windows) command prompt type:
 
 ```
 pdflatex RzDBootstrap
 ```
+
