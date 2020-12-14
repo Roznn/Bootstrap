@@ -12,7 +12,7 @@ Rozenn Dahyot, Lecturenotes Trinity College Dublin 2007.
 
 ## Compilation to create the PDF
 
-With (https://miktex.org/)[Miktex] installes, in the windows command prompt (windows):
+With [Miktex](https://miktex.org/) installes, in the windows command prompt (windows):
 
 ```
 pdflatex RzDBootstrap
