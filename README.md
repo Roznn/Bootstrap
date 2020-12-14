@@ -5,6 +5,7 @@ Beamer slides provided as tex files with reslting PDF [RzDBootstrap.pdf](RzDBoot
 Please cite the following if you find any of these materials useful:
 
 ```
-[1] Bootstrap, Jackknife and other resampling methods. Rozenn Dahyot, Lecturenotes Trinity College Dublin 2007. 
+Bootstrap, Jackknife and other resampling methods.
+Rozenn Dahyot, Lecturenotes Trinity College Dublin 2007. 
 (https://github.com/Roznn/Bootstrap/)
 ```
