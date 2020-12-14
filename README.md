@@ -9,3 +9,11 @@ Bootstrap, Jackknife and other resampling methods.
 Rozenn Dahyot, Lecturenotes Trinity College Dublin 2007. 
 (https://github.com/Roznn/Bootstrap/)
 ```
+
+## Compilation to create the PDF
+
+With (https://miktex.org/)[Miktex] installes, in the windows command prompt (windows):
+
+```
+pdflatex RzDBootstrap
+```
