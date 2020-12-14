@@ -1,0 +1,16 @@
+
+
+\frame
+{
+\frametitle{Correlation}
+The correlation is defined :
+$$ 
+\mathrm{corr}(X,Y)=\frac{\mathbb{E}\lbrack (X -\mathbb{E}(X)) \cdot (Y -\mathbb{E}(Y))\rbrack }{\left( \mathbb{E} \lbrack (X -\mathbb{E}(X))^2 \rbrack  \cdot \mathbb{E} \lbrack (Y -\mathbb{E}(Y))^2 \rbrack \right)^{1/2}}
+$$ 
+
+Its typical estimator is:
+$$
+\widehat{\mathrm{corr}}(\mathbf{x},\mathbf{y})=\frac{\sum_{i=1}^{n} x_i\ y_i - n\ \overline{x}\ \overline{y}}{\lbrack \sum_{i=1}^{n}x_i^2-n\overline{x}^2 \rbrack^{1/2}\cdot \lbrack\sum_{i=1}^{n} y_i^2-n \overline{y}^2 \rbrack^{1/2} }
+$$
+
+}

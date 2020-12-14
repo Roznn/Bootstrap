@@ -1,0 +1,183 @@
+\documentclass{beamer}
+\usepackage{eulervm}
+%%%%%%%PACKAGES%%%%%%%%%
+\usepackage[english]{babel}
+\usepackage{amssymb,amsmath}
+\usepackage[ansinew]{inputenc}
+\usepackage{multimedia}
+\usepackage{hyperref} 
+\usepackage{color}
+\input{rgb}
+\hypersetup{backref,bookmarks=true,pdfpagemode=Fullscreen,linkcolor=red,colorlinks=true,urlcolor=blue} 
+\usepackage{beamerthemesplit}
+\usepackage[absolute]{textpos}
+\usepackage{rotating,graphics,psfrag,epsfig}
+
+\title[Modern statistical methods]{Bootstrap, Jackknife and other resampling methods}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%\subtitle[]{Part I: Definitions and Problems}
+%\subtitle[]{Part II: Non-Parametric Bootstrap}
+%\subtitle[]{Part III: Parametric Bootstrap}
+%\subtitle[]{Part IV: Jackknife}
+%\subtitle[]{Part V: Permutation tests}
+%\subtitle[]{Part VI: Cross-validation}
+%%%%%%%%%%%%%%%%%%%%%%%
+\author[R. Dahyot]{R. Dahyot}
+
+\institute[]{
+Lecturenotes  \\
+Web: \url{https://roznn.github.io/} \\
+Twitter: \href{https://twitter.com/RDahyot}{@RDahyot}}
+
+\date[]{}
+
+%\definecolor{RzDbg}{rgb}{0.99,0.97,0.91}
+\definecolor{RzDbg}{rgb}{1,1,1}
+
+\mode<presentation>
+%\mode<handout>
+%\mode<beamer>
+{
+%%%%%%%%THEMES%%%%%%%%%%
+\usetheme{Boadilla}
+\setbeamercovered{invisible}
+\beamersetaveragebackground{RzDbg}
+\setbeamertemplate{navigation symbols}{} 
+\setbeamertemplate{headline}[default]
+%\setbeamertemplate{footline}[text line]{10-10-2006}
+\setbeamertemplate{footline}[page number]%[default]
+\usepartpagetemplate{
+\begin{centering}
+\Large\structure{\partname}
+%\vskip1em\par
+\Large\insertpart\par
+\end{centering}
+}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\TPHorizModule}{\paperwidth}
+\setlength{\TPVertModule}{\paperheight}
+
+\newcommand<>{\pubtitle}[1]{\scriptsize\textit{#1}\normalsize}
+\newcommand<>{\pubrest}[1]{\tiny#1\normalsize}
+
+
+\newenvironment{publication}[2]{%
+%\textblockorigin{0mm}{0mm}
+\begin{picture}(1,1)(0,0)
+\put(0,-10){\includegraphics[width=.5cm]{images/books.jpg}}
+\put(15,-4.5){\pubtitle{#1}}
+\put(15,-11.5){\pubrest{#2}}
+\end{picture}}
+
+\definecolor{RzDyellow}{rgb}{0.99,1,0.75}
+
+\setbeamercolor{postit}{fg=black,bg=RzDyellow}
+\setbeamercolor{figure}{fg=black,bg=RzDbg}
+
+\graphicspath{{}{images/}}
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+
+\frame{
+	\titlepage 
+	%\insertshortsubtitle
+	
+	}
+
+
+\section{Definitions and Problems}
+\frame{
+\frametitle{Introduction to resampling methods}
+\begin{itemize}
+\item \textbf{Definitions and Problems}
+\item Non-Parametric Bootstrap
+\item Parametric Bootstrap
+\item Jackknife
+\item Permutation tests
+\item Cross-validation
+\end{itemize}
+}
+\input{tex/Definitions.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Non-Parametric Bootstrap}
+\frame{
+\frametitle{Introduction to resampling methods}
+\begin{itemize}
+\item Definitions and Problems
+\item \textbf{Non-Parametric Bootstrap}
+\item Parametric Bootstrap
+\item Jackknife
+\item Permutation tests
+\item Cross-validation
+\end{itemize}
+}
+\input{tex/Bootstrap01.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Parametric Bootstrap}
+\frame{
+\frametitle{Introduction to resampling methods}
+\begin{itemize}
+\item Definitions and Problems
+\item Non-Parametric Bootstrap
+\item \textbf{Parametric Bootstrap}
+\item Jackknife
+\item Permutation tests
+\item Cross-validation
+\end{itemize}
+}
+\input{tex/Bootstrap02.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Jackknife}
+\frame{
+\frametitle{Introduction to resampling methods}
+\begin{itemize}
+\item Definitions and Problems
+\item Non-Parametric Bootstrap
+\item Parametric Bootstrap
+\item \textbf{Jackknife}
+\item Permutation tests
+\item Cross-validation
+\end{itemize}
+}
+\input{tex/Jackknife.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Permutation tests}
+\frame{
+\frametitle{Introduction to resampling methods}
+\begin{itemize}
+\item Definitions and Problems
+\item Non-Parametric Bootstrap
+\item Parametric Bootstrap
+\item Jackknife
+\item \textbf{Permutation tests}
+\item Cross-validation
+\end{itemize}
+}
+\input{tex/Permutations.tex}
+
+%%%%%%%%%%%%%%%%%%%%
+\section{Cross-validation}
+\frame{
+\frametitle{Introduction to resampling methods}
+\begin{itemize}
+\item Definitions and Problems
+\item Non-Parametric Bootstrap
+\item Parametric Bootstrap
+\item Jackknife
+\item Permutation tests
+\item \textbf{Cross-validation}
+\end{itemize}
+}
+\input{tex/Crossvalidation.tex}
+
+
+\end{document}

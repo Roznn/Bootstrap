@@ -1,0 +1,24 @@
+%% lots of mistakes -
+\frame
+{
+\frametitle{Bias of $\hat{\theta}$}
+
+\begin{itemize}
+\item A large bias is usually an undesirable aspect of an estimator's performance. \alert{Unbiased estimates} (such $\mathbb{E}_f(\hat{\theta})=\theta$) are interesting in practice as they promote a nice feeling of scientific objectivity in the estimation process. 
+%\item Plug- in estimates $\hat{\theta}=t(\hat{f})$ are not necessarily unbiased but they tend to have small biases compared to the magnitude of their standard error.
+\end{itemize}
+
+\begin{exampleblock}{Bias of $\hat{\sigma}^2$}
+$$
+\begin{array}{ll}
+\hat{\sigma}^2&=\frac{1}{n} \sum_{i=1}^{n} (x_i-\overline{x})^{2}=\frac{1}{n} \sum_{i=1}^{n} ((x_i-\mu_f)+ (\mu_f-\overline{x}))^{2}\\
+&\\
+&=\left(\frac{1}{n}  \sum_{i=1}^{n} (x_i-\mu_f)^2 \right)-  (\overline{x}-\mu_f)^2\\
+\end{array}
+$$
+The first term has an expected value of $\sigma_f^2$ and the second term has expected value $\sigma_f^2/n$. So the bias of  $\hat{\sigma}^2$ is:
+$$
+\mathrm{Bias}_{f}(\hat{\sigma}^2,\sigma_f^2)=\sigma_f^2-\frac{\sigma_f^2}{n}-\sigma_f^2=-\frac{\sigma_f^2}{n}
+$$ 
+\end{exampleblock}
+}

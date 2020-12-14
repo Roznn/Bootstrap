@@ -1,0 +1,368 @@
+\frame
+{
+\frametitle{Introduction}
+
+
+ We want to assess the accuracy (bias, standard error, etc.) of an arbitrary estimate $\hat{\theta}$ knowing only one sample $\mathbf{x}=(x_1,\cdots,x_n)$ drawn from an unknown population  density function $f$.
+
+\begin{itemize}
+\item We propose here one way, called \textit{Bootstrap}, to do it using computer intensive techniques for resampling. 
+
+\
+
+\item Bootstrap is a data based simulation method for statistical inference. The basic idea of bootstrap is to use the sample data to compute a statistic and to estimate its sampling distribution, without any model assumption. 
+
+\
+
+\item No theoretical calculations of standard errors needed so we don't care how mathematically  complex the estimator $\hat{\theta}$ can be! 
+
+ \end{itemize}
+
+
+
+}
+
+\frame
+{
+\frametitle{Introduction}
+
+
+\begin{itemize}
+\item The (non-parametric) bootstrap method is an application of the plug-in principle.   By \textit{non-parametric}, we mean that only $\mathbf{x}$ is known (observed) and no prior knowledge on the population density function $f$ is available.
+
+\
+
+\item Originally, the Bootstrap was introduced to compute standard error of an arbitrary estimator by  Efron (1979) and to-date the basic idea remains the same.
+\
+
+\item The term \alert{bootstrap} derives from the phrase \textit{to pull oneself up by one's bootstrap} (Adventures of Baron Munchausen, by Rudolph Erich Raspe). The Baron had fallen to the bottom of a deep lake. Just when it
+looked like all was lost, he thought to pick himself up by his own
+bootstraps.
+
+%\item It is not the same as the term .bootstrap. used in computer science to .boot. a computer from a set of core instructions (though the derivation is similar).
+\end{itemize}
+
+
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\frame
+{
+\frametitle{Bootstrap samples and replications}
+
+\begin{definition}
+A \alert{bootstrap sample} $\mathbf{x}^{*}=(x^{*}_{1},x^{*}_{2},\cdots,x^{*}_{n})$ is obtained by randomly sampling $n$ times, with replacement, from the original data points $\mathbf{x}=(x_{1},x_{2},\cdots,x_{n})$.
+\end{definition}
+
+\begin{exampleblock}{}
+Considering a sample $\mathbf{x}=(x_1,x_2,x_3,x_4,x_5)$, some bootstrap samples can be: 
+$$
+\begin{array}{l}
+\mathbf{x}^{*(1)}=( x_{2},x_{3},x_{5},x_{4},x_{5})\\
+\mathbf{x}^{*(2)}=( x_{1},x_{3},x_{1},x_{4},x_{5})\\
+\mathrm{etc.}\\
+\end{array}
+$$
+\end{exampleblock}
+\begin{definition}
+With each bootstrap sample $\mathbf{x}^{*(1)}$ to  $\mathbf{x}^{*(B)}$, we can compute a \alert{bootstrap replication} $\hat{\theta}^{*}(b)=s(\mathbf{x}^{*(b)})$ using the plug-in principle. 
+\end{definition}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame
+{
+\frametitle{How to compute Bootstrap samples}
+
+\begin{block}{}
+Repeat $B$ times: 
+\begin{enumerate}
+\item A random number device selects integers $i_1,\cdots, i_n$ each of which equals any value between 1 and $n$ with probability $\frac{1}{n}$.
+\item Then compute $\mathbf{x}^{*}=(x_{i_1},\cdots,x_{i_n})$.
+\end{enumerate}
+\end{block}
+
+\begin{exampleblock}{Some matlab code available on the web}
+See BOOTSTRAP MATLAB TOOLBOX, by Abdelhak M. Zoubir and D. Robert Iskander, 
+ 
+\href{http://www.csp.curtin.edu.au/downloads/bootstrap_toolbox.html}{http://www.csp.curtin.edu.au/downloads/bootstrap\_toolbox.html}
+\end{exampleblock}
+
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+\frametitle{How many values are left out of a bootstrap resample ?}
+Given a sample $\mathbf{x}=(x_1,x_2,\cdots,x_n)$ and assuming that all $x_i$ are different, the probability that a particular value $x_i$ is left out of a resample $\mathbf{x}^{*}=(x_1^{*},x_2^{*},\cdots,x_n^{*})$ is:
+$$
+\mathcal{P}(x_{j}^{*}\neq x_i, 1\leq j \leq n)=\left(1-\frac{1}{n}\right)^n
+$$
+since $\mathcal{P}(x_{j}^{*}=x_i)=\frac{1}{n}$. 
+ When $n$ is large, the probability  $\left(1-\frac{1}{n}\right)^n$  converges to $e^{-1}\approx 0.37$. 
+
+%It also means that the expected proportion of values $x_i$s that are not represented in a particular resample $\mathbf{x}^{*}$ is  $\left(1-\frac{1}{n}\right)^n$.
+
+} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\frame{
+%\frametitle{Bootstrap replications}
+%\begin{definition}
+%With each bootstrap sample $\mathbf{x}^{*(1)}$ to  $\mathbf{x}^{*(B)}$, we can compute a \alert{bootstrap replication} $\hat{\theta}^{*}(b)=s(\mathbf{x}^{*(b)})$ using the plug-in principle. 
+%\end{definition}
+
+%\begin{exampleblock}{What is the probability that  $\hat{\theta}^{*}(b)=\hat{\theta}$ ?}
+%From the previous slide, the probability of that a bootstrap replication is identical to the estimate $\hat{\theta}$ is:
+%$$
+%\mathcal{P}(\hat{\theta}^{*}(b)=\theta)=1-\left(1-\frac{1}{n}\right)^n
+%$$
+%When $n$ large, $\mathcal{P}(\hat{\theta}^{*}(b)=\theta)=0.632$
+%\end{exampleblock}
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+\frametitle{The Bootstrap algorithm for Estimating standard errors}
+
+\begin{beamercolorbox}[wd=\linewidth, rounded=true,shadow=true]{postit}
+\begin{enumerate}
+\item Select $B$ independent bootstrap samples $\mathbf{x}^{*(1)}, \mathbf{x}^{*(2)}, \cdots, \mathbf{x}^{*(B)}$ drawn from $\mathbf{x}$ 
+\item Evaluate the bootstrap replications:
+$$ 
+\hat{\theta}^{*}(b)=s(\mathbf{x}^{*(b)}), \quad \forall b \in \lbrace 1,\cdots,B \rbrace
+$$
+
+\item Estimate the standard error $\mathrm{se}_{f}(\hat{\theta})$ by the standard deviation of the $B$ replications:
+$$ 
+\hat{\mathrm{se}}_{B}=\left\lbrack \frac{\sum_{b=1}^{B}\lbrack \hat{\theta}^{*}(b)-\hat{\theta}^{*}(\cdot)\rbrack^{2}}{B-1} \right\rbrack^{\frac{1}{2}}
+$$
+where $\hat{\theta}^{*}(\cdot)=\frac{\sum_{b=1}^{B} \hat{\theta}^{*}(b)}{B}$
+\end{enumerate}
+\end{beamercolorbox}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+\frametitle{Bootstrap  estimate of the standard Error}
+\begin{exampleblock}{Example A}
+\input{tex/slides/ExampleA.tex}
+\end{exampleblock}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+\frametitle{Bootstrap  estimate of the standard Error}
+
+\begin{exampleblock}{Example A}
+\begin{enumerate}
+\item $B=1000$ bootstrap samples $\lbrace \mathbf{x}^{*(b)}\rbrace $
+\item $B=1000$ replications $\lbrace\overline{x}^{*}(b)\rbrace$
+\item Bootstrap estimate of the standard error:
+$$
+\widehat{\mathrm{se}}_{B=1000}=\left\lbrack \frac{\sum_{b=1}^{1000}\lbrack \overline{x}^{*}(b)-\overline{x}^{*}(\cdot)\rbrack^{2}}{1000-1} \right\rbrack^{\frac{1}{2}}=0.2212
+$$
+where $\overline{x}^{*}(\cdot)=5.0007$.
+This is to compare with $\hat{se}(\overline{x})=\frac{\hat{\sigma}}{\sqrt{n}}=0.22$.
+
+\end{enumerate}
+
+\end{exampleblock}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame
+{
+\frametitle{Distribution of $\hat{\theta}$}
+
+\begin{block}{}
+When enough bootstrap resamples have been generated, not only the standard error but any aspect of the distribution  of the estimator $\hat{\theta}=t(\hat{f})$ could be estimated. One can draw a histogram of the distribution of  $\hat{\theta}$ by using the observed $\hat{\theta}^{*}(b),\ b=1,\cdots,B $. 
+\end{block}
+
+\begin{exampleblock}{Example A}
+
+\begin{figure}[!h]
+\includegraphics[width=.4\linewidth]{histoExampleA.pdf}
+\caption{\small Histogram of the replications $\lbrace\overline{x}^{*}(b)\rbrace_{b=1\cdots B}$. }
+\end{figure}
+\end{exampleblock}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame
+{
+\frametitle{Bootstrap estimate of the standard error}
+
+\begin{definition}
+The ideal bootstrap estimate $\mathrm{se}_{\hat{f}} (\hat{\theta}^{*})$ is defined as:
+$$
+\lim_{B\rightarrow \infty} \hat{\mathrm{se}}_{B}=\mathrm{se}_{\hat{f}} (\hat{\theta}^{*})
+$$
+ $\mathrm{se}_{\hat{f}} (\hat{\theta}^{*})$ is called a \alert{non-parametric bootstrap estimate of the standard error}.
+%When $n$ and $B$ large, the hope is that $\hat{\mathrm{se}}_{B}$ will be close to $\mathrm{se}_{\hat{F}} (\theta^{*})$ which will be close to $\mathrm{se}_{F}(\theta)$.
+\end{definition}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+\frame{
+\frametitle{Bootstrap  estimate of the  standard Error}
+
+\begin{block}{How many $B$ in practice ?}
+you may want to limit the computation time.
+In practice, you get a good estimation of the standard error for $B$ in between 50 and 200.  
+\end{block}
+\begin{exampleblock}{Example A}
+\begin{table}[!h]
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+$B$& 10& 20 & 50 & 100 & 500 & 1000  & 10000\\
+\hline
+$\widehat{\mathrm{se}}_{B}$& 0.1386 & 0.2188 & 0.2245 & 0.2142 & 0.2248& 0.2212 & 0.2187\\
+\hline
+\end{tabular}
+\caption{Bootstrap standard error w.r.t. the number $B$ of bootstrap samples.}
+\end{table}
+
+\end{exampleblock}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+\frametitle{Bootstrap estimate of bias}
+\begin{definition}
+The \alert{bootstrap estimate of bias} is defined to be the estimate:
+ $$
+\begin{array}{ll}
+\mathrm{Bias}_{\hat{f}}(\hat{\theta})&=\mathbb{E}_{\hat{f}}\lbrack s(\mathbf{x}^{*})\rbrack-t(\hat{f})\\
+&\\
+&= \hat{\theta}^{*}(\cdot)-\hat{\theta}
+\end{array}
+$$
+%Here $t(\hat{F})$ may differ from the plug-in estimate $\hat{\theta}$ i.e. $\mathrm{Bias}_{\hat{F}}$ is the plug-in estimate of $\mathrm{Bias}_{F}$ whether or not $\hat{\theta}$ is the plug-in estimate of $\theta$.
+\end{definition}
+
+\begin{exampleblock}{Example A}
+
+\small
+\begin{table}[!h]
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+B & 10 & 20 & 50 & 100 & 500 & 1000 & 10000 \\
+\hline
+$\mathbb{E}_{\hat{f}}(\overline{x}^{*})$ & 5.0587 & 4.9551 &5.0244 & 4.9883 &  4.9945 & 5.0035 & 4.9996 \\
+\hline
+$\widehat{\mathrm{Bias}}$ & 0.0617 & -0.0419 & 0.0274 & -0.0087 & -0.0025 &  0.0064 &0.0025 \\
+\hline
+\end{tabular}
+\caption{$\widehat{\mathrm{Bias}}$ of  $\overline{x}^{*}$ ($\overline{x}=4.997$ and $\mu_f=5$). }
+\end{table}
+\end{exampleblock}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+\frametitle{Bootstrap estimate of bias}
+\begin{beamercolorbox}[wd=\linewidth, rounded=true,shadow=true]{postit}
+\begin{enumerate}
+\item $B$ independent bootstrap samples $\mathbf{x}^{*(1)}, \mathbf{x}^{*(2)}, \cdots, \mathbf{x}^{*(B)}$ drawn from $\mathbf{x}$ 
+\item Evaluate the bootstrap replications:
+$$ 
+\hat{\theta}^{*}(b)=s(\mathbf{x}^{*(b)}), \quad \forall b \in \lbrace 1,\cdots,B \rbrace
+$$
+\item Approximate the bootstrap expectation :
+$$
+\hat{\theta}^{*}(\cdot)=\frac{1}{B} \sum_{b=1}^{B} \hat{\theta}^{*}(b)=\frac{1}{B} \sum_{b=1}^{B} s(\mathbf{x}^{*(b)})
+$$
+\item the bootstrap estimate of bias based on $B$ replications is:
+$$
+\widehat{\mathrm{Bias}}_{B}=\hat{\theta}^{*}(\cdot)-\hat{\theta}
+$$
+\end{enumerate}
+\end{beamercolorbox}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+\frametitle{Confidence interval}
+
+\begin{definition}
+Using the bootstrap estimation of the standard error, the $100(1-2\alpha)$\%
+confidence interval is:
+$$
+\theta=\hat{\theta} \pm z^{(1-\alpha)} \cdot \widehat{\mathrm{se}}_{B}
+$$
+\end{definition}
+
+\begin{definition}
+If the bias in not null,  the \alert{bias corrected 
+confidence interval} is defined by:
+$$
+\theta=(\hat{\theta}-\widehat{\mathrm{Bias}}_{B}) \pm z^{(1-\alpha)} \cdot \widehat{\mathrm{se}}_{B}
+$$
+\end{definition}
+} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+\frametitle{Can the bootstrap answer other questions?}
+\begin{exampleblock}{The mouse data}
+\input{tex/slides/mice_00b.tex}
+\end{exampleblock}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+\frametitle{Can the bootstrap answer other questions?}
+\begin{exampleblock}{The mouse data}
+%\input{tex/slides/mice_03b.tex}
+
+\begin{itemize}
+
+\item Remember in the first lecture, we compute $d=\overline{x}_{Treat}-\overline{x}_{Cont}=30.63$ with a standard error $\hat{se}(d)=28.93$. The ratio was $d/\hat{se}(d)=1.05$ (an insignificant result as measuring $d=0$ is likely possible).
+
+\item Using bootstrap method
+\begin{enumerate}
+\item  $B$ bootstrap samples $\mathbf{x}_{Treat}^{*(b)}=(x_{Treat\ 1}^{*(b)},\cdots,x_{Treat\ 7}^{*(b)})$ and $\mathbf{x}_{Cont}^{*(b)}=(x_{Cont\ 1}^{*(b)},\cdots,x_{Cont\ 9}^{*(b)})$, $\forall 1\leq b \leq B$
+
+\item $B$ bootstrap replications are computed: $d^{*}(b)=\overline{x}^{*(b)}_{Treat}-\overline{x}^{*(b)}_{Cont}$
+
+\item  The bootstrap  standard error is computed for $B=1400$: $\hat{se}_{B=1400}=26.85$.  
+\item The ratio is  $d/\hat{se}_{1400}(d)=1.14$.
+\end{enumerate}
+\item This is still not a significant result. 
+\end{itemize}
+
+\end{exampleblock}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{tex/slides/LawSchool01.tex}
+\input{tex/slides/Correlation.tex}
+\input{tex/slides/LawSchool02.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+\frametitle{The Law school example: Conclusion}
+
+\begin{itemize}
+\item The textbook formula for  the correlation coefficient is:
+ $$
+\hat{\mathrm{se}}(\widehat{\mathrm{corr}})=(1-\widehat{\mathrm{corr}}^2)/\sqrt{n-3}
+$$
+\item With $\widehat{\mathrm{corr}}=0.7764$, the standard error is $\hat{se}(\widehat{\mathrm{corr}})=0.1147$.
+\item The estimated non-parametric bootstrap  standard error $\mathrm{se}_{B=3200}$ is $0.132$.
+%\item The parametric bootstrap  standard error for $B=3200$ is $0.1169$.
+\end{itemize}
+
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\input{tex/slides/NonParametricBootstrap.tex}
+%\input{tex/slides/ParametricBootstrap.tex}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame
+{
+\frametitle{Summary}
+\begin{itemize}
+\item Re-sampling of $\mathbf{x}$ to compute bootstrap samples $\mathbf{x}^{*}$ \item Computation of bootstrap replication of the estimator $\hat{\theta}^{*}(b)$ for $b=1,\cdots,B$
+\item From replications,  standard error $\widehat{\mathrm{se}}_{B}$, the bias $\widehat{\mathrm{Bias}}_{B}$ and the  confidence interval. 
+\item Non-parametric bootstrap estimations (no prior on $f$).
+\end{itemize}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

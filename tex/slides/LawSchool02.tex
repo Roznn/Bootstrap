@@ -1,0 +1,20 @@
+
+\frame{
+\frametitle{The Law school example}
+\begin{itemize}
+\item The estimated correlation is $\widehat{\mathrm{corr}}(\mathbf{x},\mathbf{y})=.7764$ between LSAT and GPA. 
+%\item Precise theoretical formula for the standard error of the estimator is unavailable.
+\end{itemize}
+\begin{exampleblock}{Non-parametric Bootstrap estimate of the standard error}
+
+\begin{table}[!h]
+\begin{tabular}{l|cccccccc}
+$B$ & 25 & 50 & 100 & 200 & 400 & 800 & 1600 & 3200 \\
+\hline
+$\hat{\mathrm{se}}_B$& .140 & .142 & .151 & .143 & .141 &.137 & .133 & .132 \\
+\end{tabular}
+\caption{Bootstrap estimate of standard error for $\widehat{\mathrm{corr}}(\mathbf{x},\mathbf{y})=.776$.}
+\end{table}
+The standard error stabilizes to $\mathrm{se}_{\hat{f}} (\widehat{\mathrm{corr}})\approx.132$.  
+\end{exampleblock}
+}

@@ -1,0 +1,24 @@
+%% lots of mistakes -
+\frame
+{
+\frametitle{Bias of $\hat{\theta}$}
+
+Instead of using $\hat{\sigma}^2$ as an estimate of the variance, you should try to choose an unbiased estimate. 
+
+\begin{exampleblock}{Bias of $\overline{\sigma}^2$}
+Let define:
+$$ 
+\overline{\sigma}^2=\frac{1}{n-1} \sum_{i=1}^{n} (x_i-\overline{x})^{2}
+$$
+then by computing its bias:
+$$
+\begin{array}{ll}
+\mathrm{Bias}_f(\overline{\sigma}^2,\sigma_f^2)&=\mathbb{E}_{f}(\overline{\sigma}^2)-\sigma_f^2\\
+&=0\\
+\end{array}
+$$
+$\overline{\sigma}$ is an unbiased estimator of the standard deviation.
+\end{exampleblock}
+
+
+}

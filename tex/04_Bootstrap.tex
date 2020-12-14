@@ -1,0 +1,30 @@
+%link between Jacknife and bootstrap advantage /drawback etc.
+\frame
+{
+\frametitle{Limit of the bootstrap}
+
+\begin{block}{}
+In some non conventional configurations, bootstrap might fail. For
+example
+\begin{itemize}
+\item Incomplete data (survival data, missing data).
+\item Dependent data (e.g. variance of a correlated time series).
+\item Dirty data (outliers)
+\end{itemize}
+\end{block}
+}
+
+%%other accuracy measure : bias
+\input{tex/slides/bias_01}
+\input{tex/slides/bias_02}
+
+\frame
+{
+\frametitle{Bootstrap for Bias correction }
+
+
+\begin{itemize}
+\item The bootstrap was first introduced as a method for evaluating standard errors of estimators. However, it can be easily adapted to estimate the bias of an esstimator. As a consequence, it can be used in bias correction procedure.  
+\end{itemize}
+
+}

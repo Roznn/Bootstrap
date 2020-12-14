@@ -1,0 +1,20 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+\frametitle{Non-Parametric Bootstrap}
+
+\begin{figure}[!h]
+$$
+\begin{array}{rcr}
+Real\ World & & Bootstrap\ World \\
+&&\\
+f \rightarrow \mathbf{x}  & \Rightarrow & \hat{f} \rightarrow \mathbf{x}^{*} \\
+&&\\
+\downarrow & & \downarrow \ \\
+&&\\
+\hat{\theta} & & \hat{\theta}^{*}\\
+\end{array} 
+$$
+\caption{Unknown probability model $f$ gives observed data $\mathbf{x}$ and we wish to know the accuracy of the statistic $\hat{\theta}=s(\mathbf{x})$ for estimating the parameter of interest $\theta=t(f)$. No prior information is available on $f$, therefore $\hat{f}$ is estimated from $\mathbf{x}$ as the empirical distribution function. Accuracy is inferred from observed variability of bootstrap replication $\hat{\theta}^{*}=s(\mathbf{x}^{*})$.}
+\end{figure}
+
+}

@@ -1,0 +1,22 @@
+\frame
+{
+\frametitle{Bias of $\hat{\theta}$}
+\begin{definition}
+The \alert{Bias} is the difference between the expectation of an estimator $\hat{\theta}$ and the quantity $\theta$ being estimated:
+$$
+\mathrm{Bias}_{f}(\hat{\theta},\theta)=\mathbb{E}_f(\hat{\theta})-\theta
+$$
+\end{definition}
+
+
+ \begin{exampleblock}{Bias of the mean $\overline{x}$}
+we have:
+$$
+\mathbb{E}_{f}(\overline{x})=\mathbb{E}_{f}\left(\frac{\sum_{i=1}^{n} x_i}{n}\right)=\frac{\sum_{i=1}^{n}\mathbb{E}_{f}( x_i)}{n}=\mu_f
+$$
+then:
+$$
+\mathrm{Bias}_{f}(\overline{x},\mu_f)=\mathbb{E}_f(\overline{x})-\mu_f =0
+$$
+\end{exampleblock}
+}

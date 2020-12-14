@@ -1,0 +1,21 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame
+{
+\frametitle{Parametric Bootstrap}
+
+\begin{figure}[!h]
+$$
+\begin{array}{rcccr}
+Real\ World & & Estimation & & Bootstrap\ World \\
+&&&&\\
+Prior: f\simeq \mathcal{N}(\mu,\sigma) \rightarrow \mathbf{x}  & \Rightarrow & (\overline{x},\hat{\sigma})& & \hat{f}\simeq\mathcal{N}(\overline{x},\hat{\sigma}) \rightarrow \mathbf{x}^{*} \\
+&&&&\\
+\downarrow &&& & \downarrow \ \\
+&&&&\\
+\hat{\theta} && & & \hat{\theta}^{*}\\
+\end{array} 
+$$
+\caption{Example of parametric Bootstrap. $f$ is a normal distribution of unknown parameters $(\mu, \sigma)$. From the observed data $\mathbf{x}$ drawn from $f$, an estimation of the parameters  is performed giving $(\overline{x},\hat{\sigma})$.
+$\hat{f}$ is then modelled by a normal distribution $\mathcal{N}(\overline{x},\hat{\sigma})$, from which bootstrap replications can be drawn $\mathbf{x}^{*}$.  Accuracy is inferred from observed variability of bootstrap replication $\hat{\theta}^{*}=s(\mathbf{x}^{*})$.}
+\end{figure}
+}

@@ -1,0 +1,17 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frame{
+\frametitle{The Bootstrap does not always work!}
+
+\begin{exampleblock}{Examples}
+\begin{itemize}
+\item $\mathbf{x}=(x_1,\cdots,x_n)$ is i.i.d uniform $\mathcal{U}(0,\theta)$ and $s(\mathbf{x})=\max_{x}\lbrace x_1,\cdots,x_n\rbrace$ 
+\item $x$ has a standard Cauchy distribution, then the bootstrap of $s(\mathbf{x})=\overline{x}$ will behave erratically. 
+\end{itemize} 
+\end{exampleblock}
+\begin{block}{Why ?}
+\begin{itemize}
+\item the resamples are not exactly generated from $F$ (as the original sample was) but are generated from $\hat{F}$ instead.
+\item Although $\hat{F}$ is a consistent estimator of the true distribution $F$, it may still miss some feature of $F$ that affects the distribution of $s(\mathbf{x})$.  
+\end{itemize} 
+\end{block}
+}
