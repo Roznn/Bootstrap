@@ -1,7 +1,4 @@
-# Bootstrap
-Bootstrap, Jackknife and other resampling methods (Lecturenotes)
-
-
+# Bootstrap, Jackknife and other resampling methods 
 
 Beamer slides provided as tex files with reslting PDF [RzDBootstrap.pdf](RzDBootstrap.pdf)   in this repo.
 
