@@ -27,3 +27,5 @@ With [Miktex](https://miktex.org/) installed, in the (Windows) command prompt ty
 pdflatex RzDBootstrap
 ```
 
+## Author: 
+[Rozenn Dahyot](https://twitter.com/RDahyot)
