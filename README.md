@@ -4,7 +4,7 @@
 
 This github repo shares some of the material used for teaching *Bootstrap, Jackknife and other resampling methods* 
 (6 contact hours as part of a 5 ECTS Sophister class in Trinity College Dublin, 2005 & 2007).
-Beamer slides as tex  and  PDF files [RzDBootstrap.pdf](RzDBootstrap.pdf) are provided in this repo.
+Beamer slides are provided as tex files  and the resulting  PDF  [RzDBootstrap.pdf](RzDBootstrap.pdf) is also  available.
 
 Please cite the following if you find any of these materials useful:
 
