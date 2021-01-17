@@ -1,6 +1,10 @@
 # Bootstrap, Jackknife and other resampling methods 
 
-Beamer slides as tex files and  PDF [RzDBootstrap.pdf](RzDBootstrap.pdf) are provided in this repo.
+## Information
+
+This github repo contains some of the materials used for teaching *Bootstrap, Jackknife and other resampling methods* 
+(6 contact hours as part of a 5 ECTS Sophister class in Trinity College Dublin, 2005 & 2007).
+Beamer slides are provided as tex files  and the resulting  PDF  [RzDBootstrap.pdf](RzDBootstrap.pdf) is also  available.
 
 Please cite the following if you find any of these materials useful:
 
@@ -27,3 +31,5 @@ With [Miktex](https://miktex.org/) installed, in the (Windows) command prompt ty
 pdflatex RzDBootstrap
 ```
 
+## Author: 
+[Rozenn Dahyot](https://twitter.com/RDahyot)
