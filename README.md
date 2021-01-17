@@ -32,4 +32,4 @@ pdflatex RzDBootstrap
 ```
 
 ## Author: 
-[Rozenn Dahyot](https://twitter.com/RDahyot)
+[Rozenn Dahyot](https://roznn.github.io/)
