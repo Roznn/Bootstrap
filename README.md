@@ -1,4 +1,5 @@
 # Bootstrap, Jackknife and other resampling methods 
+[![DOI](https://zenodo.org/badge/321443179.svg)](https://zenodo.org/doi/10.5281/zenodo.10636834)
 
 ## Information
 
@@ -7,6 +8,7 @@ This github repo contains some of the materials used for teaching *Bootstrap, Ja
 Beamer slides are provided as tex files  and the resulting  PDF  [RzDBootstrap.pdf](RzDBootstrap.pdf) is also  available.
 
 Please cite the following if you find any of these materials useful:
+
 
 ```
 Bootstrap, Jackknife and other resampling methods.
