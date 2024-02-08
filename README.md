@@ -13,7 +13,7 @@ Please cite the following if you find any of these materials useful:
 ```
 Bootstrap, Jackknife and other resampling methods.
 Rozenn Dahyot, Lecturenotes Trinity College Dublin 2007. 
-(https://github.com/Roznn/Bootstrap/)
+(https://github.com/Roznn/Bootstrap/) DOI:10.5281/zenodo.10636834
 ```
 
 ## Topics covered
